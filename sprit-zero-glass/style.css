@@ -1,0 +1,89 @@
+body {
+    background-color: #333;
+}
+
+:root {
+    --primary-rgb: 54,87,108;
+}
+
+.screen{
+    width: 500px;
+    border: 3px solid rgba(var(--primary-rgb),.8);
+    aspect-ratio: 10/16;
+    border-radius: 10px;
+    background-color: rgba(var(--primary-rgb),.25);
+    position: relative;   
+
+}
+.screen-overlay{
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(
+        rgba(var(--primary-rgb),.8),
+        rgba(var(--primary-rgb),.8) 3px,
+        transparent 3px,
+        transparent 9px
+    );
+    background-size: 100% 9px;
+    animation: pan-overlay 60s infinite;
+    position: absolute;
+    z-index: 2;
+    top: 0px;
+    left: 0px; 
+}
+
+@keyframes pan-overlay {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 0 100%;
+    }
+}
+
+.screen > .screen-image{
+    background-image: url("./assets/pexels-monstera-5996991.jpg");
+    height: 100%;
+    width: 100%;
+    background-size: 300%;
+    border-radius: 10px;
+    /* filter: hue-rotate(160deg); */
+    opacity: .4;
+    animation: infinite 15s pan-image ease;
+    position: absolute;
+}
+
+@keyframes pan-image {
+    from {
+        background-position: 0% 0%;
+    }
+    20% {
+        background-position: 50% 10%;
+        
+    }
+    20.0001% {
+        background-position: 25% 50%;
+        background-size: 250%;
+    }
+    40% {
+        background-position: 0% 25%;
+        background-size: 250%;
+    }
+    40.0001% {
+        background-position: -20% -20%;
+        background-size: 400%;
+    }
+    60% {
+        background-position: 40% 20%;
+        background-size: 400%;
+    }
+    60.0001% {
+        background-position: 40% 0%;
+        background-size: 300%;
+    }
+    to {
+        background-position: 40% 100%;
+        background-size: 300%;
+    }
+    
+}
